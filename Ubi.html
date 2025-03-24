@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UbiProject - Mapa</title>
+    <link href="Ubi.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+    <script  type="module" src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>UbiProject</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" id="logoutNav">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    
+    
+
+    
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic3Y3MDY3NTM4IiwiYSI6ImNtOGc3bjVuNDBrMjkybW92cjlvNmFmZmkifQ.naGG3VWTUTNPGPID12pG-A';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-74.5, 40],
+            zoom: 9
+        });
+
+        const marker = new mapboxgl.Marker().setLngLat([-74.5, 40]).addTo(map);
+        
+        document.getElementById('logoutNav').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = './IniSes.html';
+        });
+        
+    </script>
+</body>
+</html>
